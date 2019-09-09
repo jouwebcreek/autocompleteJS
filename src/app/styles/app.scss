@@ -1,0 +1,66 @@
+@import "reset";
+
+body,
+html {
+	font-weight: normal;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: #000;
+}
+
+main {
+	margin: 15px;
+	display: flex;
+	section {
+		margin: auto;
+		position: relative;
+	}
+}
+// Search input
+.search {
+	width: 250px;
+	.search-input {
+		width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+	}
+}
+// match-list div and results div 
+.match-list {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+	div {
+		padding: 10px;
+		cursor: pointer;
+		background-color: #fff; 
+		border-bottom: 1px solid #d4d4d4;
+		&.active {
+			background-color: #ccc;
+		}
+	}
+}
+
+// X button in input
+.clean-icon {
+	position: absolute;
+	right: 0; 
+	top: 16px;
+	padding: 0 8px;
+	font-style: normal;
+	font-size: 1.2em;
+	user-select: none;
+	cursor: pointer;
+}
+.search-input:not(:valid) ~ .clean-icon {
+	display: none;
+}
