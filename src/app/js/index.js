@@ -10,7 +10,10 @@ const state = new State();
 // Search States
 async function searchStates(search) {
     const data = await state.getState(search);
-    console.log(data);
+    //console.log(data);
+    const matchList = ui.outputHTML(data);
+    ui.stateSelectedEvents(matchList);
+
 }
 
 
@@ -19,4 +22,8 @@ async function searchStates(search) {
 
 // Begin to press a key
 search.addEventListener('input', () => searchStates(search.value) );
+
+
+// When click in X clean the input
+ui.clearInput();
 
