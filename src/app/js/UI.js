@@ -62,22 +62,31 @@ export class UI {
         for(let i=0; i<statesSelected.length; i++){
             // OnClick event
             statesSelected[i].addEventListener('click', (e) => {
-                let statediv = e.target;
-                statediv.classList.add('active');
-                this.search.value = statesSelected[i].innerHTML;
+                let selected = statesSelected[i];
+                this.addActive(selected);
+                this.search.value = selected.innerHTML;
                 // remove list of states
                 matchList.innerHTML = '';
             });
             // Mouseover
             statesSelected[i].addEventListener('mouseover', (e) => { 
-                let statediv = e.target;
-                statediv.classList.add('active');
+                let selected = statesSelected[i];
+                this.addActive(selected);
             });
             // MouseOut
             statesSelected[i].addEventListener('mouseout', (e) => { 
-                let statediv = e.target;
-                statediv.classList.remove('active');
+                let selected = statesSelected[i];
+                this.removeActive(selected);
             });
         }
+    }
+
+    // Add active
+    addActive(selected) {
+        selected.classList.add('active');
+    }
+    // Remove Active
+    removeActive(selected) {
+        selected.classList.remove('active');
     }
 }
